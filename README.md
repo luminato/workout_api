@@ -29,6 +29,13 @@ pyenv virtualenv 3.11.4 workoutapi
 pyenv activate workoutapi
 pip install -r requirements.txt
 ```
+em caso de erro ao usar o "pyenv activate workoutapi" use o camando:
+```bash
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+```
+
 Para subir o banco de dados, caso não tenha o [docker-compose](https://docs.docker.com/compose/install/linux/) instalado, faça a instalação e logo em seguida, execute:
 
 ```bash
@@ -37,7 +44,7 @@ make run-docker
 Para criar uma migration nova, execute:
 
 ```bash
-make create-migrations d="nome_da_migration"
+make create-migrations d="workout"
 ```
 
 Para criar o banco de dados, execute:
@@ -53,6 +60,11 @@ Para subir a API, execute:
 make run
 ```
 e acesse: http://127.0.0.1:8000/docs
+
+Para sair do pyenv, execute:
+```bash
+pyenv deactivate
+```
 
 # Desafio Final
     - adicionar query parameters nos endpoints
